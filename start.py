@@ -21,7 +21,7 @@ def winget_check():
     result = os.system("winget --version")
     if result != 0:
         print('winget is not ready, you can download msix package via command:')
-        print('powershell Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v1.9.25180/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile ".\winget.msixbundle"')
+        print('powershell Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v1.9.25180/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile ".\\winget.msixbundle"')
         return False
     
     return True
