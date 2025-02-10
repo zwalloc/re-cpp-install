@@ -56,8 +56,8 @@ def start():
     if not choco_check():
         return
     
-    os.system('powershell Remove-Item $env:LOCALAPPDATA\Microsoft\WindowsApps\python.exe >nul')
-    os.system('powershell Remove-Item $env:LOCALAPPDATA\Microsoft\WindowsApps\python3.exe >nul')
+    os.system('powershell Remove-Item $env:LOCALAPPDATA\\Microsoft\\WindowsApps\\python.exe >nul')
+    os.system('powershell Remove-Item $env:LOCALAPPDATA\\Microsoft\\WindowsApps\'python3.exe >nul')
 
     os.system('python3 "py3\\make_python_link.py"')
     os.system('python3 "py3\\make_python_packages.py"')
