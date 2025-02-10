@@ -27,6 +27,9 @@ def winget_check():
     return True
 
 async def vs_pass():
+    vsinstall_first = subprocess.Popen('winget install "Microsoft.VisualStudio.2022.Community', creationflags=subprocess.CREATE_NEW_CONSOLE)
+    await asyncio.to_thread(vsinstall_first.wait)
+
     vsinstall = subprocess.Popen('cmd /c "vs\\vsinstall.bat"', creationflags=subprocess.CREATE_NEW_CONSOLE)
     await asyncio.to_thread(vsinstall.wait)
 
@@ -53,6 +56,9 @@ def start():
     if not choco_check():
         return
     
+    os.system('powershell Remove-Item $env:LOCALAPPDATA\Microsoft\WindowsApps\python.exe >nul')
+    os.system('powershell Remove-Item $env:LOCALAPPDATA\Microsoft\WindowsApps\python3.exe >nul')
+
     os.system('python3 "py3\\make_python_link.py"')
     os.system('python3 "py3\\make_python_packages.py"')
 
