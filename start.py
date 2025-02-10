@@ -57,10 +57,10 @@ def start():
         return
     
     os.system('powershell Remove-Item $env:LOCALAPPDATA\\Microsoft\\WindowsApps\\python.exe >nul')
-    os.system('powershell Remove-Item $env:LOCALAPPDATA\\Microsoft\\WindowsApps\'python3.exe >nul')
+    os.system('powershell Remove-Item $env:LOCALAPPDATA\\Microsoft\\WindowsApps\\python3.exe >nul')
 
-    os.system('python3 "py3\\make_python_link.py"')
-    os.system('python3 "py3\\make_python_packages.py"')
+    os.system('py -3 "py3\\make_python_link.py"')
+    os.system('py -3 "py3\\make_python_packages.py"')
 
     os.system('winget install "Microsoft.WindowsTerminal"')
     os.system('choco install vscode -y')
